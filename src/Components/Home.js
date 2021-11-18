@@ -1,5 +1,7 @@
-import React ,{useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import DogCard from './DogCard';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
 
 const Home = (props) => {
 	const [dogs, setDogs] = useState([]);
@@ -11,17 +13,15 @@ const Home = (props) => {
 	}, []);
 
 	let dogView = dogs.map((dog) => {
-		return (
-            <DogCard setDogs={setDogs} dog={dog} />
-		
-		);
+		return <DogCard setDogs={setDogs} dog={dog} />;
 	});
-
 
 	return (
 		<div>
 			<h1> Dig, the dog database</h1>
-			<ul>{dogView}</ul>
+			<Container>
+				<Row>{dogView}</Row>
+			</Container>
 		</div>
 	);
 };

@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import { Navigate } from 'react-router';
+import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
+import Col from 'react-bootstrap/Col';
 
 const DogCard = (props) => {
 	const handleDelete = (id) => {
@@ -17,11 +20,22 @@ const DogCard = (props) => {
 	};
 
 	return (
-		<li key={props.dog._id}>
-			Name: {props.dog.name} - Breed: {props.dog.breed}
-			{/* <button"> Update</button> */}
-			<button onClick={() => handleDelete(props.dog._id)}> Delete</button>
-		</li>
+		<Col>
+			<Card style={{ width: '18rem' }}>
+				<Card.Body>
+					<Card.Title>{props.dog.name}</Card.Title>
+					<Card.Text>{props.dog.breed}</Card.Text>
+					<Button onClick={() => handleDelete(props.dog._id)} variant='primary'>
+						Delete
+					</Button>
+				</Card.Body>
+			</Card>
+		</Col>
+		// <li key={props.dog._id}>
+		// 	Name: {props.dog.name} - Breed: {props.dog.breed}
+		// 	{/* <button"> Update</button> */}
+		// 	<button onClick={() => handleDelete(props.dog._id)}> Delete</button>
+		// </li>
 	);
 };
 
